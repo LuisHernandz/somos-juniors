@@ -1,11 +1,3 @@
-<!-- 
-<template>
-  <Navbar />
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-  </div>
-</template> -->
-
 <template>
   <section class="sj-blue py-10">
     <div class="mx-12 text-center">
@@ -48,14 +40,14 @@
       <div class="mx-12 py-8">
           <h2 class="text-xl text-center font-bold text-sj-green md:text-2xl">VACANTES...</h2>
 
-          <div class="md:w-5/6 md:mx-auto h-xl grid grid-cols-2 gap-2 my-8 text-sj-blue md:grid-cols-3 md:gap-12" id="contenido">
+          <div class="md:w-5/6 md:mx-auto h-xl grid grid-cols-1 gap-2 my-8 text-sj-blue sm:grid-cols-2 lg:grid-cols-3 md:gap-12" id="contenido">
                 <div v-if="this.cargando">
                     <p>Cargando datos...</p>
                 </div>
               <div v-else v-for="vac, i in this.vacantes" :key="vac.id" class="border-2 border-solid border-slate-500 rounded-xl">
                   <div class=" p-4">
                       <div class="sj-blue h-40 rounded-md">
-                          <img src="../assets/logo.png" alt="" class="w-full h-full object-cover">
+                          <img src="../assets/img/entornos-de-desarrollo.jpg" alt="" class="w-full h-full object-cover">
                       </div>
   
                       <div class="text-sj-green text-sm flex justify-between my-4">
@@ -87,7 +79,7 @@
       <div class="mx-12">
           <h2 class="text-xl text-center font-bold text-sj-green md:text-2xl">OFRECEMOS</h2>
 
-          <div class="grid grid-cols-2 gap-2 py-12 text-sj-blue text-sm md:grid-cols-4 md:gap-12 md:text-lg">
+          <div class="grid grid-cols-2 gap-2 py-12 text-sj-blue text-sm md:grid-cols-3 md:gap-12 md:text-lg lg:grid-cols-4">
               <div class="sj-cyan p-4 rounded-md"><b>Capacitación y Desarrollo Profesional:</b> Cursos, talleres o certificaciones que mejoren sus habilidades y conocimientos.</div>
               <div class="sj-skyblue p-4 rounded-md"><b>Reconocimientos y Premios:</b> Programas de reconocimiento para destacar logros individuales o en equipo.</div>
               <div class="sj-cyan p-4 rounded-md"><b>Proyectos Innovadores:</b> Participar en iniciativas que involucren innovación o mejoras dentro de la empresa.</div>
@@ -103,33 +95,42 @@
           <div class="grid grid-cols-1 gap-16 justify-items-center my-8 text-sj-blue md:grid-cols-3">
               <div class="flex flex-col items-center text-center">
                 <div class="sj-blue w-32 h-32 rounded-full overflow-hidden">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29.jpg/250px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29.jpg" alt="Perfil" class="w-full h-full object-cover">
+                  <img src="../assets/img/perfil-1.jpg">
                 </div>  
                 <div class="my-4">
-                  <h4><b>Juan Martínez</b></h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi incidunt ab autem necessitatibus aliquam sit.</p>
+                  <h4><b>EDUARDO SÁNCHEZ</b></h4>
+                  <div class="mt-2">
+                    <p><b><i>Gerente de Operaciones</i></b></p>
+                    <p>Encargado de supervisar y optimizar todas las actividades operativas dentro de la empresa. </p>
+                  </div>
+                </div> 
+              </div> 
+
+              <div class="flex flex-col items-center text-center">
+                <div class="sj-blue w-32 h-32 rounded-full overflow-hidden">
+                  <img src="../assets/img/perfil-3.jpg">
+                </div>  
+                <div class="my-4">
+                  <h4><b>JUAN MARTÍNEZ</b></h4>
+                  <div class="mt-2">
+                    <p><b><i>Desarrollador Senior </i></b></p>
+                    <p>Lidera a los equipos de desarrollo de software, diseñando e implementando soluciones tecnológicas que permiten a la empresa mantenerse a la vanguardia en innovación. </p>
+                  </div>
                 </div> 
               </div> 
                 
               <div class="flex flex-col items-center text-center">
                 <div class="sj-blue w-32 h-32 rounded-full overflow-hidden">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29.jpg/250px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29.jpg" alt="Perfil" class="w-full h-full object-cover">
+                  <img src="../assets/img/perfil-2.jpg">
                 </div>  
                 <div class="my-4">
-                  <h4><b>Juan Martínez</b></h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi incidunt ab autem necessitatibus aliquam sit.</p>
+                  <h4><b>BRENDA RUÍZ</b></h4>
+                  <div class="mt-2">
+                    <p><b><i>Directora de Recursos Humanos </i></b></p>
+                    <p>Lidera el departamento de Recursos Humanos, encargándose de la gestión del talento y la cultura organizacional.  </p>
+                  </div>
                 </div> 
-              </div>   
-
-              <div class="flex flex-col items-center text-center">
-                <div class="sj-blue w-32 h-32 rounded-full overflow-hidden">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29.jpg/250px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29.jpg" alt="Perfil" class="w-full h-full object-cover">
-                </div>  
-                <div class="my-4">
-                  <h4><b>Juan Martínez</b></h4>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi incidunt ab autem necessitatibus aliquam sit.</p>
-                </div> 
-              </div>   
+              </div>     
           </div>
       </div>
   </section>

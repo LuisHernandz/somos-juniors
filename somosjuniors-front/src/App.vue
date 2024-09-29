@@ -26,8 +26,12 @@
         <router-link to="/" class="text-sj-blue hover:text-gray-500 border-b-4 border-emerald-500">Inicio</router-link>
         <a href="#" class="text-sj-blue hover:text-gray-500 border-b-4 border-emerald-500">Servicios</a>
         <a href="#" class="text-sj-blue hover:text-gray-500 border-b-4 border-emerald-500">Nosotros</a>
-        <router-link to="/acceso" class="flex items-center text-sj-green sj-skyblue px-4 font-bold rounded-md text-xs">ACCESO</router-link>
-      </div>
+        <router-link v-if="!isLoggedIn" to="/acceso" class="flex items-center text-sj-green sj-skyblue px-4 font-bold rounded-md text-xs"> ACCESO </router-link>
+
+        <button v-if="isLoggedIn" @click="logout" class="flex items-center text-sj-green sj-skyblue px-4 font-bold rounded-md text-xs">CERRRAR SESIÓN</button>
+    </div>
+
+
     </div>
   </nav>
 
@@ -36,10 +40,14 @@
       &times;
     </button>
     <div class="flex flex-col items-center">
-      <a href="#" class="text-white text-2xl py-4">Inicio</a>
+      <router-link to="/" class="text-white text-2xl py-4">Inicio</router-link>
       <a href="#" class="text-white text-2xl py-4">Servicios</a>
       <a href="#" class="text-white text-2xl py-4">Nosotros</a>
       <a href="#" class="text-white text-2xl py-4">Contacto</a>
+
+
+      <router-link v-if="!isLoggedIn" to="/acceso" class="flex items-center text-sj-green sj-skyblue py-4 px-8 font-bold rounded-md text-xs"> ACCESO </router-link>
+      <button v-if="isLoggedIn" @click="logout" class="flex items-center text-sj-green sj-skyblue py-4 px-8 font-bold rounded-md text-xs">CERRRAR SESIÓN</button>
     </div>
   </div>
 
@@ -48,36 +56,36 @@
   </main>
 
   <footer class="sj-blue justify-between align-center text-sj-white p-8 md:flex">
-        <div class="text-2xl text-center w-2/5 p-4 md:flex md:justify-center md:items-center">
+        <div class="text-2xl text-center w-5/5 p-4 md:flex md:justify-center md:items-center lg:w-2/5">
             <a href="#" class="mx-2"><i class="fa-brands fa-square-instagram"></i></a>
             <a href="#" class="mx-2"><i class="fa-brands fa-square-x-twitter"></i></a>
             <a href="#" class="mx-2"><i class="fa-brands fa-square-whatsapp"></i></a>
         </div>
 
-        <div class="grid grid-cols-3 p-4 gap-12 w-3/5">
+        <div class="grid grid-cols-3 p-4 gap-12 w-5/5 lg:w-3/5">
             <div>
                 <p><b>SOMOS JUNIORS</b></p><br>
                 <ul>
-                  <li><a href="">Inicio</a></li>
-                  <li><a href="">Servicios</a></li>
-                  <li><a href="">Nosotros</a></li>
-                  <li> <router-link to="/acceso">Contacto</router-link> </li>
+                  <li><router-link to="/">Inicio</router-link></li>
+                  <li>Servicios</li>
+                  <li>Nosotros</li>
+                  <li>Contacto</li>
+                  <li><router-link to="/acceso">Acceso</router-link></li>
                 </ul>
             </div>
 
             <div>
                 <p><b>LEGALES</b></p><br>
                 <ul>
-                  <li><a href="">Términos y condiciones</a></li>
-                  <li><a href="">Aviso de privacidad</a></li>
+                  <li><a href="#">Términos y condiciones</a></li>
+                  <li><a href="#">Aviso de privacidad</a></li>
                 </ul>
             </div>
 
             <div>
                 <p><b>DIRECCIÓN</b></p><br>
                 <p><b>Ubicación:</b></p>
-                <p>Calle 19 #135 Esq. 32</p>
-                <p>Col. Chuburna de Hidalgo,Mérida, Yucatán,</p>
+                <p>Av. Insurgentes Sur 674, Del Valle Norte, Benito Juárez, C.P 03103 Ciudad de México, CDMX Oficina 12 del cuarto piso</p>
             </div>
         </div>
         
@@ -89,15 +97,25 @@
   export default {
     data() {
       return {
-        mobileMenuVisible: false, // Estado reactivo para controlar la visibilidad del menú móvil
+        mobileMenuVisible: false, 
       };
+    },
+    computed: {
+      isLoggedIn() {
+        return !!localStorage.getItem('token');
+      },
     },
     methods: {
       toggleMenu() {
-        this.mobileMenuVisible = !this.mobileMenuVisible; // Alterna la visibilidad del menú
+        this.mobileMenuVisible = !this.mobileMenuVisible; 
       },
       closeMobileMenu() {
-        this.mobileMenuVisible = false; // Cierra el menú móvil
+        this.mobileMenuVisible = false; 
+      },
+      logout() {
+        localStorage.removeItem('token'); // Eliminar el token de localStorage
+        this.$router.push('/acceso'); 
+        window.location.reload(); 
       },
     },
   };

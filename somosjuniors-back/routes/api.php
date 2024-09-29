@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UsersController;
@@ -26,3 +27,5 @@ Route::apiResource('/vacantes', VacanteController::class);
 Route::apiResource('/usuarios', UsersController::class);
 Route::post('/login', [SessionsController::class, 'store']);
 // Route::apiResource('/login', SessionsController::class);
+
+Route::post('/login', [AuthController::class, 'login']);

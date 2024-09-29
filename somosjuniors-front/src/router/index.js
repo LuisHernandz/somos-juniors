@@ -5,6 +5,7 @@ import RegisterView from '@/views/RegisterView.vue'
 import UsersView from '@/views/Users/UsersView.vue'
 import UserEdit from '@/views/Users/UserEdit.vue'
 import UserShow from '@/views/Users/UserShow.vue'
+import auth from '@/middleware/auth'
 
 const routes = [
   {
@@ -25,17 +26,20 @@ const routes = [
   {
     path: '/usuarios',
     name: 'users',
-    component: UsersView
+    component: UsersView,
+    beforeEnter: auth
   },
   {
     path: '/editU/:id',
     name: 'editU',
-    component: UserEdit
+    component: UserEdit,
+    beforeEnter: auth
   },
   {
     path: '/showU/:id',
     name: 'showU',
-    component: UserShow
+    component: UserShow,
+    beforeEnter: auth
   },
   {
     path: '/about',

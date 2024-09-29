@@ -2,10 +2,12 @@
     <div class="container p-8 mx-auto">
         <h1 class="text-sj-blue text-center text-2xl font-bold mb-8">DETALLES DEL USUARIO</h1>
 
-        <div class="max-w-sm mx-auto sj-white p-6 rounded-md">
+        <div class="max-w-sm mx-auto bg-white rounded-lg shadow dark:border p-6 rounded-md">
             <router-link :to="{path:'/usuarios'}">
-                <i></i>
-                Regresar
+                <div class="flex justify-end items-center text-sj-blue mb-4">
+                  <i class="fa-solid fa-circle-left"></i>
+                  <b class="ml-2">REGRESAR</b>
+                </div>
             </router-link>
             <div class="mb-5">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
