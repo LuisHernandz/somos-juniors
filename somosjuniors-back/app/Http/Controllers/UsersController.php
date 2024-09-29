@@ -17,7 +17,6 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->input();
-        // $inputs->password = Hash::make(trim($request->password()));
         $e = User::create($inputs);
         return response()->json([
             'data'=>$e,

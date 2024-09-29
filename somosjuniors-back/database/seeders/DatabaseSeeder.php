@@ -19,11 +19,5 @@ class DatabaseSeeder extends Seeder
     {
         Vacante::factory()->times(8)->create();
         User::factory()->times(5)->create();
-        Estudiante::factory()->times(15)->create();
-        Curso::factory()->times(8)->create()->each(function($curso){
-            $curso->estudiantes()->sync(
-                Estudiante::all()->random(3)
-            );
-        });
     }
 }
